@@ -1,4 +1,4 @@
-package com.nickmazurek.moviecourt.models;
+package com.codingdojo.moviecourt.models;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
