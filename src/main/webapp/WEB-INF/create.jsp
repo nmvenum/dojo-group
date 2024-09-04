@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta charset="ISO-8859-1">
-    <title>Add a Movie</title>
+    <title>Movie Court</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -55,7 +55,7 @@
         <div class="header d-flex justify-content-between align-items-center">
             <h1>Add a Movie!</h1>
             <p>
-                <a href="#">Home</a> | <a href="#">Logout</a>
+                <a href="#">Home</a> | <a href="/logout">Logout</a>
             </p>
         </div>
         <div>
