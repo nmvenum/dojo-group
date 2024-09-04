@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Movie List</title>
+<title>Movie Court</title>
 <style>
 body {
 	font-family: Arial, sans-serif;
