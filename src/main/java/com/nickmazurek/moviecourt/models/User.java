@@ -1,4 +1,4 @@
-package com.nickmazurek.moviecourt.models;
+package com.codingdojo.moviecourt.models;
 
 import java.util.Date;
 import java.util.List;
