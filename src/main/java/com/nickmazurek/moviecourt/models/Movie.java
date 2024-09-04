@@ -4,8 +4,6 @@ import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -15,7 +13,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 
@@ -35,9 +36,12 @@ public class Movie {
     @Size(min=2, max=200, message="Team Name must be over 2 Characters!")
     private String movieTitle;
     
-    @NotEmpty(message="Please provide a number from 1-5!!")
-    @Size(min=1, max=5, message="Please stay in range!!")
-    private Integer movieRating;
+    
+
+    @NotNull(message="Please provide a number from 1-5!!")
+        @Min(value=1, message="1 is the minimum value!!")
+        @Max(value=5, message="5 is the maximum value!!")
+        private Integer movieRating;
     
     
     @ManyToOne(fetch=FetchType.LAZY)
