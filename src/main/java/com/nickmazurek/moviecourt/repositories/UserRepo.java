@@ -9,7 +9,7 @@ import com.nickmazurek.moviecourt.models.User;
 
 
 public interface UserRepo extends CrudRepository<User, Long> {
-public Optional<User> findByEmail(String email);
+	Optional<User> findByEmail(String email);
 	
 	public List<User> findAll();
 	
