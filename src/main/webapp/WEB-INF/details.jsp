@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Movie Court</title>
 </head>
 <body>
 	<div class="container">
@@ -16,13 +16,10 @@
 				<c:out value="{movie.movieTitle}" />
 			</h1>
 			<p>
-				<a href="#">Home</a> | <a href="#">logout</a>
+				<a href="#">Home</a> | <a href="/logout">logout</a>
 			</p>
 		</div>
 		<div>
-			<p>
-				<c:out value="${house.listing} out of 5" />
-			</p>
 			<p>
 				<c:out value="{movie.user.userName}" />
 			</p>
