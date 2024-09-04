@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Movie List</title>
+<title>Movie Court</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -90,10 +90,9 @@
     <div class="container">
         <div>
             <div class="d-flex">
-                <h1>Hello, <c:out value="${user.userName}"/></h1>
+                <h1>Hello, <c:out value="${user.userName}"!/></h1>
                 <p>
-                    <a href="/dashboard">Home</a> | 
-                    <a href="logout">Logout</a>
+                    <a href="/logout">Logout</a>
                 </p>
             </div>
             <div>
