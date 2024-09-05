@@ -27,12 +27,23 @@
                 <a href="/logout" class="btn btn-link" aria-label="Logout">Logout</a>
             </p>
         </div>
+        
         <!-- Movie Details -->
         <div class="mt-3">
             <p>Rating: <c:out value="${movie.movieRating}" /> out of 5</p>
             <p>Posted by: <c:out value="${movie.user.userName}" /></p>
-            <p><strong>Comment: <c:out value="${movie.movieComment }"/> </strong></p>
+            <p><strong>Comment: <c:out value="${movie.movieComment}"/> </strong></p>
+
+            <!-- Edit and Delete Buttons for Movie Creator -->
+            <c:if test="${user.id == movie.user.id}">
+                <a href="/updateReviewPage/${movie.id}" class="btn btn-warning btn-sm">Edit Movie</a>
+                <form action="/deleteMovie/${movie.id}" method="post" style="display:inline;">
+                    <input type="hidden" name="_method" value="delete">
+                    <button type="submit" class="btn btn-danger btn-sm">Delete Movie</button>
+                </form>
+            </c:if>
         </div>
+
         <!-- Comments Section -->
         <div class="card border-danger mb-3">
             <div class="card-header">Comments</div>
@@ -52,6 +63,7 @@
                 </c:forEach>
             </div>
         </div>
+        
         <!-- Add Comment Form -->
         <div class="card border-danger mb-3">
             <div class="card-header">Add a Comment</div>
@@ -59,6 +71,7 @@
                 <form:form action="/addComment" method="post" modelAttribute="commentForm">
                     <div class="form-group">
                         <form:label class="form-label" path="text">Add a comment:</form:label>
+                        <p class="text-danger" ><c:out value="${error}"></c:out></p>
                         <form:errors class="text-danger" path="text" />
                         <form:textarea class="form-control" path="text" rows="3" />
                     </div>
@@ -68,6 +81,7 @@
             </div>
         </div>
     </div>
+
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5-1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
