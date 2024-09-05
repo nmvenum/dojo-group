@@ -2,8 +2,11 @@ package com.codingdojo.moviecourt.services;
 
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.codingdojo.moviecourt.models.Comment;
 import com.codingdojo.moviecourt.models.Movie;
 import com.codingdojo.moviecourt.models.User;
 import com.codingdojo.moviecourt.repositories.MovieRepo;
@@ -18,6 +21,9 @@ public class MovieService {
     
     @Autowired
     private MovieRepo mRepo;
+    
+    @Autowired
+    private CommentService cServ;
     
     //Create Movie
     public Movie createMovie(Movie movie, Long userId) {
@@ -49,7 +55,11 @@ public class MovieService {
         existingMovie.setMovieTitle(movie.getMovieTitle());
         existingMovie.setMovieRating(movie.getMovieRating());
         existingMovie.setMovieComment(movie.getMovieComment());
-        existingMovie.setComments(movie.getComments()); // Update the comments list
+        
+        existingMovie.getComments().clear();
+        for (Comment comment : movie.getComments()) {
+            existingMovie.addComment(comment);
+        }
 
         return mRepo.save(existingMovie);
     }
@@ -59,6 +69,20 @@ public class MovieService {
         mRepo.deleteById(movieId);
     }
     
+    public void addCommentToMovie(Long movieId, Comment comment) {
+        Movie movie = getOneMovie(movieId);
+        movie.addComment(comment);
+        mRepo.save(movie);
+    }
+
+    public void removeCommentFromMovie(Long movieId, Long commentId) {
+        Movie movie = getOneMovie(movieId);
+        Comment comment = cServ.getCommentById(commentId);
+        movie.removeComment(comment);
+        mRepo.save(movie);
+        cServ.deleteComment(commentId);
+    }
+
     
 
 }
