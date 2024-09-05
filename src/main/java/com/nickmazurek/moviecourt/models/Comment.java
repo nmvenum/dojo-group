@@ -7,7 +7,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 	@Entity
 	public class Comment {
@@ -15,7 +16,8 @@ import jakarta.validation.constraints.NotEmpty;
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
 
-	    @NotEmpty
+	    @NotBlank(message = "Comment has to have more than 1 character!")
+	    @Size(min = 1, message = "Comment has to have more than 1 character!")
 	    private String text;
 
 	    @ManyToOne(fetch = FetchType.LAZY)
