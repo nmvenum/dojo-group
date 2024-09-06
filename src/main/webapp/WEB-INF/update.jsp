@@ -16,14 +16,17 @@
             <div class="form-group">
                 <form:label path="movieTitle">Movie Title:</form:label>
                 <form:input path="movieTitle" class="form-control"/>
+                <form:errors class="text-danger" path="movieTitle"></form:errors>
             </div>
             <div class="form-group">
                 <form:label path="movieRating">Rating:</form:label>
                 <form:input path="movieRating" class="form-control"/>
+                <form:errors class="text-danger" path="movieRating"></form:errors>
             </div>
             <div class="form-group">
                 <form:label path="movieComment">Comment:</form:label>
                 <form:textarea path="movieComment" class="form-control" rows="3"/>
+                <form:errors class="text-danger" path="movieComment"></form:errors>
             </div>
             <button type="submit" class="btn btn-primary">Update Movie</button>
         </form:form>
