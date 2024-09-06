@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+C:\Users\mcsho\Desktop\coding_dojo\projects_and_algos\projects\test\dojo-group\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+771396821.index
+1430633624.index
+3706347357.index
+3520006922.index
+444819311.index
+3073543282.index
+1861235007.index
